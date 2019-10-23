@@ -29,6 +29,7 @@ export class PlayerShow extends Component {
             weight,
             position,
             image,
+            likes,
         } = this.props
         return (
             <React.Fragment>
@@ -44,6 +45,7 @@ export class PlayerShow extends Component {
                             <h2>Weight: {weight}</h2>
                             <h3>Position: {position}</h3>
                             <h4>Team: {this.renderTeamLink()}</h4>
+                            <h5>Likes: {likes}</h5>
                         </div>
                     </div>
                 </div>

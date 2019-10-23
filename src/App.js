@@ -41,23 +41,6 @@ class App extends Component {
     this.getTeamsAndPlayers()
   }
 
-  // handleClick = (event) => {
-  //   event.preventDefault()
-  //   debugger
-  //   if (event.target.innerText === "Home") {
-  //     console.log(event.target.innerText)
-  //     return <Route exact path="/" component={Home} />
-  //   }
-  //   else if (event.target.innerText === "NBA Teams") {
-  //     console.log(event.target.innerText)
-  //     return <TeamsContainer />
-  //   }
-  //   else if (event.target.innerText === "NBA Players") {
-  //     console.log(event.target.innerText)
-  //     return <PlayersContainer />
-  //   }
-  // }
-
   render() {
     return (
       <Router history={history}>
