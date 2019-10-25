@@ -6,14 +6,12 @@ export const fetchPlayers = () => {
     }
 }
 
-export const addPlayers = (players) => {
+export const addLikes = (id) => {
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/players", {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(players)
+        return fetch(`http://localhost:3000/api/v1/players/${id}`, {
+            method: 'PATCH'
         })
         .then(resp => resp.json())
-        .then(players => dispatch({type: 'ADD_PLAYERS', players}))
+        .then(player => dispatch({type: 'ADD_LIKES', player}))
     }
 }

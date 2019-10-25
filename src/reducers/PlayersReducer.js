@@ -15,6 +15,12 @@ export default function managePlayers (state = {players: [], filteredPlayers: nu
             }
             const obj = {...state, filteredPlayers: filtered}
             return obj
+        case "ADD_LIKES":
+            let updatedPlayers = [...state.players.filter(player => {
+                return player.id !== action.player.id
+            })
+        , action.player]
+            return {...state, players: updatedPlayers}
         default:
             return state
     }

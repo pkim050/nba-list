@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
+import { addLikes } from '../../actions/players'
+import { connect } from 'react-redux'
 
 export class PlayerShow extends Component {
     constructor(props) {
@@ -19,6 +21,10 @@ export class PlayerShow extends Component {
 
     goBack() {
         this.props.history.goBack()
+    }
+
+    handleClick = (event) => {
+        this.props.addLikes(this.props.id)
     }
 
     render() {
@@ -45,7 +51,7 @@ export class PlayerShow extends Component {
                             <h2>Weight: {weight}</h2>
                             <h3>Position: {position}</h3>
                             <h4>Team: {this.renderTeamLink()}</h4>
-                            <h5>Likes: {likes}</h5>
+                            <h5>Likes: {likes} <button onClick={this.handleClick}>Like Me!</button></h5>
                         </div>
                     </div>
                 </div>
@@ -54,4 +60,10 @@ export class PlayerShow extends Component {
     }
 }
 
-export default withRouter(PlayerShow)
+const mapDispatchToProps = dispatch => {
+    return {
+        addLikes: (id) => dispatch(addLikes(id))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(withRouter(PlayerShow))

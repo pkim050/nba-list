@@ -52,11 +52,14 @@ class PlayersList extends Component {
     renderPlayers = () => {
         let players = []
         if (!!this.props.filteredPlayers) {
-            players = this.props.filteredPlayers 
+            players = this.props.filteredPlayers
         }
         else if (!!this.props.players.length > 0) {
             players = this.props.players
         }
+        players.sort(function(a, b) {
+            return a.id - b.id;
+        })
         return (
             players.map(player => {
                 return <Player key={player.id} player={player} />
