@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
-//import { addLikes } from '../../actions/players'
 import {fetchTeams} from '../../actions/teams'
 import { connect } from 'react-redux'
 import Dropdown from './Dropdown'
@@ -24,10 +23,6 @@ export class PlayerShow extends Component {
     goBack() {
         this.props.history.goBack()
     }
-
-    // handleClick = (event) => {
-    //     this.props.addLikes(this.props.id)
-    // }
 
     componentDidMount() {
         this.props.teams()
@@ -58,7 +53,6 @@ export class PlayerShow extends Component {
                             <h3>Position: {position}</h3>
                             <h4>Team: {this.renderTeamLink()}</h4>
                             <h5><Dropdown fetchTeams={this.props.teams} playerId={id} /></h5>
-                            {/*<h5>Likes: {likes} <button onClick={this.handleClick}>Like Me!</button></h5>*/}
                         </div>
                     </div>
                 </div>
@@ -66,12 +60,6 @@ export class PlayerShow extends Component {
         )
     }
 }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         addLikes: (id) => dispatch(addLikes(id))
-//     }
-// }
 
 const mapDispatchToProps = dispatch => ({
     teams: () => dispatch(fetchTeams())

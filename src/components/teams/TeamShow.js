@@ -13,6 +13,9 @@ export class TeamShow extends Component {
     }
 
     renderRoster = (players) => {
+        players.sort(function(a, b) {
+            return a.id - b.id;
+        })
         return players.map(player => {
             return <div className="col-10 mx-auto col-md-6 col-lg-4 my-3">
                 <div className="card">

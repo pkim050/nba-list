@@ -6,16 +6,6 @@ export const fetchPlayers = () => {
     }
 }
 
-export const addLikes = (id) => {
-    return dispatch => {
-        return fetch(`http://localhost:3000/api/v1/players/${id}`, {
-            method: 'PATCH'
-        })
-        .then(resp => resp.json())
-        .then(player => dispatch({type: 'ADD_LIKES', player}))
-    }
-}
-
 export const tradePlayer = (id, teamId) => {
     return dispatch => {
         return fetch(`http://localhost:3000/api/v1/players/${id}`, {
