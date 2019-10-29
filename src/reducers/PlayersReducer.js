@@ -21,6 +21,12 @@ export default function managePlayers (state = {players: [], filteredPlayers: nu
             })
         , action.player]
             return {...state, players: updatedPlayers}
+        case "TRADE_PLAYER":
+            let arrPlayers = [...state.players.filter(player => {
+                return player.id !== action.player.id
+            })
+        , action.player]
+            return {...state, players: arrPlayers}
         default:
             return state
     }
