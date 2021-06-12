@@ -15,7 +15,7 @@ class TeamsContainer extends Component {
 
     async getTeams() {
         try {
-          const data = await fetch('http://localhost:3000/api/v1/teams')
+          const data = await fetch('https://nba-list-api.herokuapp.com/api/v1/teams')
           const jsonData = await data.json()
           this.setState({
               teams: jsonData

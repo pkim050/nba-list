@@ -1,6 +1,6 @@
 export const fetchPlayers = () => {
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/players")
+        return fetch("https://nba-list-api.herokuapp.com/api/v1/players")
         .then(resp => resp.json())
         .then(players => dispatch({type: 'PLAYERS_REQUEST', players}))
     }
@@ -8,7 +8,7 @@ export const fetchPlayers = () => {
 
 export const tradePlayer = (id, teamId) => {
     return dispatch => {
-        return fetch(`http://localhost:3000/api/v1/players/${id}`, {
+        return fetch(`https://nba-list-api.herokuapp.com/api/v1/players/${id}`, {
         headers: {
             'Content-Type': 'application/json'    
         },    

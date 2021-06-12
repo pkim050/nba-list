@@ -15,7 +15,7 @@ class PlayersContainer extends Component {
 
     async getPlayers() {
         try {
-            const data = await fetch('http://localhost:3000/api/v1/players')
+            const data = await fetch('https://nba-list-api.herokuapp.com/api/v1/players')
             const jsonData = await data.json()
             this.setState({
                 players: jsonData
